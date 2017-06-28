@@ -1,0 +1,6 @@
+---
+- name: Galaxy test
+  hosts: yogesh-centos-m
+
+  roles:
+    - yogeshraheja.docker-test

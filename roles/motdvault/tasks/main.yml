@@ -1,0 +1,15 @@
+---
+# tasks file for motdvault
+- include_vars: main.yml
+
+- name: Include touchmotd.yml from tasks directory
+  include: touchmotd.yml
+
+- name: Create Content for MOTD file
+  copy:
+    content: "{{ motd }}"
+    dest: /etc/motd
+  register: output
+- name: Debug output
+  debug: var=output
+...

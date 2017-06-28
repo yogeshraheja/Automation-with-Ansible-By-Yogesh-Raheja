@@ -1,0 +1,19 @@
+---
+# Playbook for file and directory creation
+- name: File and Directory Creation testing
+  hosts: yogesh-centos-m
+
+# Tasks for File and Directory creation
+  tasks:
+    - name: Directory Creation with root ownership
+      file: path=/var/tmp/directorytest mode=0777 owner=root group=root state=directory
+
+    - name: File Creation with ownership of usertest and group grouptest
+      file: path=/var/tmp/directorytest/filetest owner=usertest group=usertest mode=0666 state=touch
+
+    - name: Copy /var/log/messages to /var/tmp/filetest
+      copy: src=/var/log/messages dest=/var/tmp/directorytest/filetest
+...
+
+
+

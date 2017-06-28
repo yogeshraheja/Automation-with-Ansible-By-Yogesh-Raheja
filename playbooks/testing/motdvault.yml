@@ -1,0 +1,6 @@
+---
+- name: Test for Vault with Ansible Role
+  hosts: yogesh-centos-m
+
+  roles:
+    - motdvault

@@ -1,0 +1,33 @@
+---
+- name: This is my First Play
+  hosts: yogesh-centos-m
+  vars:
+    user1: yog
+    user2: rah
+    shell: "/bin/sh"
+    homedir: "/home"
+    user3:
+      testuser:
+        name: raheja
+        uid: 6789
+        hdir: "{{ homedir }}/{{ user1 }}/raheja"
+  tasks:
+    - name: user creation for {{ user1 }}
+      user: name={{ user1 }} state=present
+      register: user1output
+    - name: "{{ user1 }} output"
+      debug: var=user1output
+
+    - name: user creation for {{ user2 }} with shell {{ shell }}
+      user: name={{ user2 }} home="{{ homedir }}/{{ user2 }}" shell={{ shell }} state=present
+      register: user2output
+    - name: "{{ user2 }} output"
+      debug: var=user2output
+
+    - name: user creation for {{ user3.testuser.name }} with home-directory {{ user3.testuser.hdir }}
+      user: name="{{ user3.testuser.name }}" home="{{ user3.testuser.hdir }}" uid={{ user3.testuser.uid }} state=present
+      register: user3output
+    - name: "{{ user3 }} output"
+      debug: var=user3output
+
+...

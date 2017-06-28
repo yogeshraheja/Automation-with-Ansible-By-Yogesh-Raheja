@@ -1,0 +1,17 @@
+galaxy_info:
+  author: "Yogesh Raheja"
+  description: "Role for a Test Demo on Ansible Galaxy to install Docker CE"
+  company: your company (optional)
+
+  license: license (GPLv2, CC-BY, etc)
+
+  min_ansible_version: 2.x
+
+  platforms:
+    - name: EL
+      versions:
+      - 7
+
+dependencies: []
+  # List your role dependencies here, one per line. Be sure to remove the '[]' above,
+# if you add dependencies to this list.

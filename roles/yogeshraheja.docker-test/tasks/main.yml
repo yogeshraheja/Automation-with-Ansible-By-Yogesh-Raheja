@@ -1,0 +1,9 @@
+---
+# tasks file for docker-test
+- include: dockercepkg.yml
+
+- include: dockercefile.yml
+
+- include: dockerservice.yml
+
+- include: dockertest.yml

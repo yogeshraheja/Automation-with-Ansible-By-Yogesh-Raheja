@@ -1,0 +1,14 @@
+---
+# Creating /etc/docker/daemon.json recommended file
+
+- name: Creating daemon.json file
+  file:
+    path: /etc/docker/daemon.json
+    state: touch
+
+- name: Copy the content for daemon.json from files directory of this role
+  copy:
+    src: files/dockerfile
+    dest: /etc/docker/daemon.json
+
+...

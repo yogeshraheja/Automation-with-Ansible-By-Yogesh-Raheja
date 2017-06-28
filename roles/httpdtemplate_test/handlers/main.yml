@@ -1,0 +1,4 @@
+---
+# handlers file for httpdtemplate
+- name: restart httpd
+  service: name={{ httpd_service }} state=restarted enabled=yes

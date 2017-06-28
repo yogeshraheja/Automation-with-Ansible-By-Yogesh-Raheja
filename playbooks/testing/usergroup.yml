@@ -1,0 +1,12 @@
+---
+# Playbook for user creation
+- name: User and Group Creation testing
+  hosts: yogesh-centos-m
+
+# Tasks for user creation
+  tasks:
+    - name: Creating user "usertest"
+      user: name=usertest uid=6666 shell=/bin/bash comment="Test User" state=present
+    - name: Creating group "usergroup"
+      group: name=usergroup gid=9999 state=present
+...

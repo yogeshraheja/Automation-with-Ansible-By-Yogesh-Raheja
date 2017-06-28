@@ -1,0 +1,14 @@
+---
+# Playbook for user creation using variables
+- name: This is my First Play
+  hosts: yogesh-centos-m
+
+# Defining variable section in playbook using vars parameter
+  vars:
+    user1: yogesh
+
+# Tasks for user creation using user1 variable 
+  tasks:
+    - name: user creation
+      user: name={{ user1 }} state=present
+...

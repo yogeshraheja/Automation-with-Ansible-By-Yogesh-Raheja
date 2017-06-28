@@ -1,0 +1,21 @@
+---
+- name: File and Directory Creation testing
+  hosts: yogesh-centos-m
+  gather_facts: no
+
+  tasks:
+    - name: Motd file creation for {{ ansible_hostname }}
+      file: 
+        path: /etc/motd
+        owner: root
+        group: root
+        state: touch
+       
+    - name: Create Content for MOTD file
+      copy:
+        content: "Host {{ ansible_hostname }} is running {{ ansible_distribution }} OS with Kernel Level {{ ansible_kernel }}"
+        dest: /etc/motd
+      register: output
+    - name: Debug output
+      debug: var=output
+...

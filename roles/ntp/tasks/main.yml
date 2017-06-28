@@ -1,0 +1,12 @@
+---
+# tasks file for ntp
+
+- name: NTP Package Installation
+  yum: name={{ item }} state=installed
+  with_items: 
+    - "{{ ntp_pkgs }}"
+
+- name: Copy NTP configuration file
+  copy: src=files/ntp.conf dest=/etc/ntp.conf
+  notify:
+    - restart ntp

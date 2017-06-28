@@ -1,0 +1,16 @@
+---
+# This is my Test Application Playbook
+- name: My test application 
+  hosts: yogesh-centos-m
+
+# This is my tasks for test application
+
+  tasks:
+    - name: Create user "test" with uid 7777
+      user: name=test uid=7777 state=present
+
+    - name: Create a directory for test application
+      file: path=/var/tmp/test state=directory
+
+# This is end of my playbook with one one play and two tasks
+... 

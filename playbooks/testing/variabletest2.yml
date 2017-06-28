@@ -1,0 +1,15 @@
+---
+- name: This is my First Play
+  hosts: yogesh-centos-m
+  vars:
+    user1: yog
+    user2: rah
+    shell: "/bin/sh"
+    homedir: "/home"
+  tasks:
+    - name: user creation for {{ user1 }}
+      user: name={{ user1 }} state=present
+
+    - name: user creation for {{ user2 }} with shell {{ shell }}
+      user: name={{ user2 }} home="{{ homedir }}/{{ user2 }}" shell={{ shell }} state=present
+...

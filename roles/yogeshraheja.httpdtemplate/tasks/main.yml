@@ -1,0 +1,13 @@
+---
+# tasks file for httpdtemplate
+
+- name: httpd Package Installation
+  yum: name={{ item }} state=installed
+  with_items:
+    - "{{ httpd_pkgs }}"
+
+- name: httpd configuration file with templates
+  template: src=templates/index.html.j2 dest=/var/www/html/index.html
+  notify:
+    - restart httpd
+

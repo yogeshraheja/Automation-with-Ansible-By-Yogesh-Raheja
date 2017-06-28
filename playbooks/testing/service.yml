@@ -1,0 +1,10 @@
+---
+# Playbook for NFS service
+- name: NFS service start
+  hosts: yogesh-centos-m
+
+# Tasks for telnet package installation
+  tasks:
+    - name: NFS Service Start
+      service: name=nfs state=started enabled=yes
+...

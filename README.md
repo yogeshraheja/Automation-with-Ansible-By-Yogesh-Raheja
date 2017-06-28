@@ -14,4 +14,4 @@
 
 # Linkedin: linkedin.com/in/yogesh-raheja-b7503714
 
-# PErsonal Blogs: http://yogeshraheja007.blogspot.com/
+# Personal Blogs: http://yogeshraheja007.blogspot.com/

@@ -1,0 +1,25 @@
+---
+- name: Users and Secondary Groups with Ansible Loops
+  hosts: yogesh-centos-m
+  vars:
+    userone: yogeshloop1
+    usertwo: yogeshloop2
+    appgroup: root
+
+  tasks:
+    - name: Users and Secondary groups with Loops for {{ ansible_hostname }}
+      user:
+        name: "{{ item.name }}"
+        state: present
+        groups: "{{ item.groups }}"
+# You can unhash the resgister line to get Debug output 
+#      register: output
+      with_items:
+        - { name: "{{ userone }}", groups: "{{ appgroup }}" }
+        - { name: "{{ usertwo }}", groups: "cloud" }
+
+# You have to unhash debug modules to get register output
+#   - name: Debug output
+#      debug: var=output
+...
+

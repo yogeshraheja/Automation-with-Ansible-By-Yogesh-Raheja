@@ -1,0 +1,33 @@
+---
+- name: Playbook with Disabled Facts
+  hosts: yogesh-centos-m,192.168.0.18
+
+  tasks:
+    - name: Starting Service only on all CentOS servers
+      service: name=nfs state=started
+      when: ansible_distribution == "CentOS"
+      register: output
+    - name: Debug output
+      debug: var=output
+
+    - name: Creating File on all CentOS and Ubuntu server
+      file: path=/var/tmp/conditionaltest state=touch
+      when: ansible_distribution == "CentOS" or ansible_distribution == "Ubuntu"
+      register: output1
+    - name: Debug output
+      debug: var=output1
+
+    - name: Install web package on all centos OS and version 7 Servers
+      yum: name=httpd state=installed
+      when: ansible_distribution == "CentOS" and ansible_distribution_major_version == "7"
+      register: output2
+    - name: Debug output
+      debug: var=output2
+
+    - name: Mix of AND/OR conditional statements to create generic user
+      user: name=genericuser state=present
+      when: (ansible_distribution == "CentOS" and ansible_distribution_major_version == "7") or (ansible_distribution == "Ubuntu" and ansible_distribution_major_version == "16")
+      register: output3
+    - name: Debug output
+      debug: var=output3
+...

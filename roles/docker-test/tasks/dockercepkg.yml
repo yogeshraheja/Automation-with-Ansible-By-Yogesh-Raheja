@@ -1,0 +1,27 @@
+---
+# Refer https://docs.docker.com/engine/installation/linux/centos/
+
+- name: Ensure to install yum-utils device-mapper-persistent-data lvm2
+  yum:
+    name: "{{ item }}"
+    state: installed
+  with_items:
+    - yum-utils
+    - device-mapper-persistent-data
+    - lvm2
+
+- name: Enable extras CentOS repository. This ensures access to the container-selinux package which is required by docker-ce
+  command: yum-config-manager --enable extras
+
+
+- name: Add Docker repository ro have Docker package available
+  command: yum-config-manager --add-repo {{ docker_repo_url }}
+
+- name: Install the Docker engine
+  yum:
+    name: docker-ce
+    state: installed
+    
+...
+
+

@@ -1,0 +1,22 @@
+---
+# Playbook for NTP Application
+- name: NTP Application setup
+  hosts: yogesh-centos-m
+
+# Tasks for NTP Application
+  tasks:
+    - name: NTP Package Installation
+      yum: name=ntp state=present
+
+    - name: NTP File
+      copy: src=/var/tmp/ntp.conf  dest=/etc/ntp.conf
+
+# This is my Notify task to trigger Handler to restart services everytime there is a change in NTP File task
+      notify:
+        - restart ntp
+
+# Handler for NTP services
+  handlers:
+    - name: restart ntp
+      service: name=ntpd state=restarted
+...

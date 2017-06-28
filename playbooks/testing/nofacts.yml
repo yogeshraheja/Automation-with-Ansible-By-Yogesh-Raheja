@@ -1,0 +1,12 @@
+---
+- name: Playbook with Disabled Facts
+  hosts: yogesh-centos-m
+  gather_facts: no
+
+  tasks:
+    - name: FIle Creation
+      file:
+        path: /var/tmp/nofacttest
+        state: touch
+...
+

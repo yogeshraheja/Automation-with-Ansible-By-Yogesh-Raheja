@@ -1,0 +1,14 @@
+---
+- name: Users and Secondary Groups with Ansible Loops
+  hosts: yogesh-centos-m
+
+  tasks:
+    - name: Users and Secondary groups with Loops for {{ ansible_hostname }}
+      user:
+        name: "{{ item.name }}"
+        state: present
+        groups: "{{ item.groups }}"
+      with_items:
+        - { name: "testttt", groups: "cloud" }
+...
+

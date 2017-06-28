@@ -1,0 +1,13 @@
+---
+- name: This is my Register and Debug Test Play
+  hosts: yogesh-centos-m
+
+  tasks:
+    - name: Task to install talk package with Register variable
+      yum: name=talk state=present
+      register: installoutput
+    - name: Use of Debug Module to redirect the output of Register Variable on Screen while Ansible Run
+      debug: var=installoutput
+...
+   
+

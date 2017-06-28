@@ -1,0 +1,12 @@
+---
+# tasks file for motd
+- name: Include touchmotd.yml from tasks directory
+  include: touchmotd.yml
+
+- name: Create Content for MOTD file
+  copy:
+    content: "Host {{ ansible_hostname }} is running {{ ansible_distribution }} OS with Kernel Level {{ ansible_kernel }}"
+    dest: /etc/motd
+  register: output
+- name: Debug output
+  debug: var=output

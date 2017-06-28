@@ -1,0 +1,6 @@
+---
+- name: test
+  hosts: minion
+
+  roles:
+    - docker-test

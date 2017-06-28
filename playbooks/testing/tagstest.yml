@@ -1,0 +1,18 @@
+---
+- name: Tag testing
+  hosts: yogesh-centos-m
+
+  tasks:
+  - name: Installing vim package
+    yum: name=vim state=installed
+    
+    tags:
+      - vimpackage
+
+  - name: Creating user
+    user: name=tagtest state=present
+
+    tags:
+      - taguser
+
+...

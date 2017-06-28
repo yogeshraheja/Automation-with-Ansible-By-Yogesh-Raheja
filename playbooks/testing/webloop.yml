@@ -1,0 +1,23 @@
+---
+- name: Webserver Package Installation with Ansible Loops
+  hosts: yogesh-centos-m
+
+  tasks:
+    - name: Package Installation with Loops for {{ ansible_hostname }}
+      yum:
+        name: "{{ item }}"
+        state: installed
+      with_items:
+        - php
+        - gcc
+        - talk
+        - vim
+        - httpd
+
+    - name: Start the service as all dependent packages are installed
+      service: name=httpd state=started
+      register: output
+    - name: Debug information
+      debug: var=output
+...
+

@@ -1,0 +1,7 @@
+---
+- name: Motd file creation for {{ ansible_hostname }}
+  file:
+    path: /etc/motd
+    owner: root
+    group: root
+    state: touch

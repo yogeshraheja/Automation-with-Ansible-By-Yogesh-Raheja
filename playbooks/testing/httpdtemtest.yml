@@ -1,0 +1,7 @@
+---
+- name: Testing for httpdtemplate role with Jinja2 templates
+  hosts: yogesh-centos-m
+
+  roles:
+#    - httpdtemplate
+    - yogeshraheja.httpdtemplate

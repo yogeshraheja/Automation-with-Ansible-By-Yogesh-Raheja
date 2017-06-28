@@ -1,0 +1,11 @@
+---
+# Playbook for telnet package installation
+- name: telnet package installation
+  hosts: yogesh-centos-m
+
+# Tasks for telnet package installation
+  tasks:
+    - name: Telnet Installation
+      yum: name=telnet state=installed
+...
+

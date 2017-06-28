@@ -1,0 +1,11 @@
+---
+# Simple test to confirm docker is working
+
+- name: Test Docker Container with hello world image
+  command: docker run hello-world
+  register: output
+
+- name: Debug output
+  debug: var=output
+
+... 

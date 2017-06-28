@@ -1,0 +1,7 @@
+---
+# Role Playbook for NTP Application
+- name: NTP Application setup
+  hosts: yogesh-centos-m
+
+  roles:
+    - ntp

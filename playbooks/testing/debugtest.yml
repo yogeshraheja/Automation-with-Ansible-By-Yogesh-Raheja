@@ -1,0 +1,8 @@
+---
+- name: This is my First Debug Play 
+  hosts: yogesh-centos-m
+
+  tasks:
+    - name: Testing with Debug
+      debug: msg="This is just a test for Debug Module to print outputs while Ansible run"
+...

@@ -1,0 +1,9 @@
+---
+- name: This is my First Debug Play
+  hosts: yogesh-centos-m
+
+  tasks:
+    - name: Testing Ansible Facts {{ ansible_hostname }}
+      debug: msg="Host {{ ansible_hostname }} is having IP address {{ ansible_eth0.ipv4.address }}"
+...
+

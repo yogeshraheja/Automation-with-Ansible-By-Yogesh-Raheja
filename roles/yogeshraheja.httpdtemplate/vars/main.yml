@@ -1,0 +1,8 @@
+---
+# vars file for httpdtemplate
+httpd_pkgs:
+  - httpd
+
+httpd_service: httpd
+
+book_title: "My experience with Ansible Book"
