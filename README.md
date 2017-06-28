@@ -14,4 +14,4 @@
 
 # Blogs: unixadminschool.com/blog/author/yogesh-raheja
 
-# Personal Blogs: http://yogeshraheja007.blogspot.com/
+# Personal Blogs: yogeshraheja007.blogspot.com/
