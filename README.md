@@ -8,10 +8,10 @@
 
 # Phone: +91-9810344919
 
-# Blogs: blog.thinknyx.com
-         unixadminschool.com/blog/author/yogesh-raheja/
-         
-
 # Linkedin: linkedin.com/in/yogesh-raheja-b7503714
+
+# Blogs: blog.thinknyx.com
+
+# Blogs: unixadminschool.com/blog/author/yogesh-raheja
 
 # Personal Blogs: http://yogeshraheja007.blogspot.com/
