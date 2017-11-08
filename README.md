@@ -1,4 +1,4 @@
-# This Repository contians all of the examples, tasks, playbooks, roles used to demonstrate Operations and Executions performed in My Experience with Ansible by Yogesh Raheja.
+# This Repository contians all of the examples, tasks, playbooks, roles used to demonstrate Operations and Executions performed in the book "Automation with Ansible" by Yogesh Raheja.
 
 # Author: Yogesh Raheja
 
