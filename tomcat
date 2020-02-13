@@ -1,0 +1,45 @@
+---
+- name: tomcat Playbook playbook
+  hosts: "client"
+
+  tasks:
+    - name: checking java and wget
+      package:
+        name:
+          - java-1.8.0-openjdk
+          -  wget
+        state: present
+      register: packinstall
+
+    - name: checking installation logs
+      debug: var=packinstall
+
+    - name: creating directory
+      file: path=/opt/tomcat state=directory
+
+    - name: downloading tomcat
+      get_url: url=http://mirror.23media.de/apache/tomcat/tomcat-8/v8.5.29/bin/apache-tomcat-8.5.29.tar.gz dest=/opt/tomcat/
+
+    - name: extracting tar
+      unarchive: src=/opt/tomcat/apache-tomcat-8.5.29.tar.gz dest=/opt/tomcat/ remote_src=yes
+
+    - name: changing permission
+      shell: 'chmod 777 catalina.sh startup.sh shutdown.sh'
+      args:
+        chdir: /opt/tomcat/apache-tomcat-8.5.29/bin/
+        warn: false
+
+    - name: downloading sample application
+      get_url: url=https://tomcat.apache.org/tomcat-8.0-doc/appdev/sample/sample.war dest=/opt/tomcat/apache-tomcat-8.5.29/webapps/
+
+    - name: waiting for 30 sec
+      wait_for: timeout=30
+
+    - name: starting tomcat service
+      shell: 'nohup /opt/tomcat/apache-tomcat-8.5.29/bin/catalina.sh start'
+      register: checktomcat
+
+    - debug: var=checktomcat
+
+    - name: service started
+      debug: msg='Check the tomcat through browser'
