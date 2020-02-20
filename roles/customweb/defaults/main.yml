@@ -1,0 +1,7 @@
+---
+# defaults file for customweb
+webpkg: httpd
+webfile: "/var/www/html/index.html"
+webconf: "/etc/httpd/conf/httpd.conf"
+websvc: httpd
+webuser: ["userone","usertwo"]

@@ -1,0 +1,5 @@
+---
+- name: Creating Users
+  user: name={{ item }} state=present
+  with_items:
+    - "{{ webuser }}"

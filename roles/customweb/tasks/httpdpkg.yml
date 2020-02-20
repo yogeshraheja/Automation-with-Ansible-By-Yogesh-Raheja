@@ -1,0 +1,10 @@
+---
+- name: Installing {{ webpkg }} package for webserver
+  yum: name={{ webpkg }} state=present
+  register: webpkgout
+  when: 'ansible_distribution == "CentOS"'
+
+- name: Installing {{ webpkg }} package for webserver
+  yum: name=apache2 state=present
+  register: webpkgout
+  when: 'ansible_distribution == "Ubuntu"'

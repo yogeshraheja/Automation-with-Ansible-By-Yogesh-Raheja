@@ -1,0 +1,4 @@
+---
+# handlers file for customweb
+- name: restart httpd
+  service: name={{ websvc }} state=restarted enabled=yes

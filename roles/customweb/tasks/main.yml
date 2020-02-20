@@ -1,0 +1,6 @@
+---
+# tasks file for customweb
+- include: httpduser.yml
+- include: httpdpkg.yml
+- include: httpdindex.yml
+- include: httpdconf.yml

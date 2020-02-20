@@ -1,0 +1,7 @@
+---
+- name: Configuring "{{ webfile }}" Index file
+  copy: dest="{{ webfile }}" content="<h1>My CentOs webserver page</h1>"
+  register: webfileout
+
+- name: Displaying index file
+  debug: var=webfileout

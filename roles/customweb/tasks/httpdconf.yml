@@ -1,0 +1,13 @@
+---
+- name: Changing port for "{{ webconf }}" file
+  lineinfile: path="{{ webconf }}" regexp="^Listen 80" line="Listen 81"
+  register: confout
+  when: 'ansible_distribution == "CentOS"'
+  ignore_errors: true
+  notify:
+    - restart httpd
+
+- name: Checking port outputs
+  debug: var=confout
+
+  
