@@ -1,0 +1,24 @@
+---
+- name: This play is for Docker Setup on Ubuntu
+  hosts: "all"
+
+  tasks:
+  - name: Installing Docker Engine prerequisites
+    apt: name={{ item }} state=present update_cache=yes
+    loop: [ 'apt-transport-https', 'ca-certificates', 'curl', 'software-properties-common', 'gnupg', 'lsb-release' ]
+
+  - name: Adding Docker GPG apt key
+    apt_key:
+      url: https://download.docker.com/linux/ubuntu/gpg
+      state: present
+
+  - name: Adding Docker Repository
+    apt_repository:
+      repo: deb https://download.docker.com/linux/ubuntu bionic stable
+      state: present
+
+  - name: Installing Docker Software
+    apt: name=docker-ce state=present update_cache=yes
+
+  - name: Restarting Docker Daemon
+    service: name=docker state=restarted
