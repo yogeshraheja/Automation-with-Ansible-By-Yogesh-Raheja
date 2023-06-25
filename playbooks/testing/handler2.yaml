@@ -1,0 +1,17 @@
+---
+- name: handler demo
+  hosts: localhost
+  connection: local
+  tasks:
+    - name: Uptime
+      ansible.builtin.command: "uptime"
+      notify:
+        - message 1
+        - message 2
+  handlers:
+    - name: message 1
+      ansible.builtin.debug:
+        msg: message 1
+    - name: message 2
+      ansible.builtin.debug:
+        msg: message 2
